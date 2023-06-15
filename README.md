@@ -72,9 +72,10 @@ The frontend application is built with React.js and is located in the root direc
 
 ### Prerequisites
 
-Node.js (https://nodejs.org)
-Yarn package manager (https://yarnpkg.com)
-Installation
+- Node.js (https://nodejs.org)
+- Yarn package manager (https://yarnpkg.com)
+
+### Installation
 Open a terminal and navigate to the root directory.
 
 Run the following command to install the dependencies:
