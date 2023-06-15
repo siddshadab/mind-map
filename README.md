@@ -40,6 +40,22 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialec
 
 ```
 
+Make sure on first run 
+
+```
+spring.jpa.hibernate.ddl-auto= update
+
+```
+to 
+```
+spring.jpa.hibernate.ddl-auto= create
+
+```
+
+after first sucessfull run if all tables created in database revert it back to update
+
+
+
 Replace jdbc:mysql://localhost:3306/mydatabase with the URL of your database and root and password with your database credentials.
 
 Running the Application
