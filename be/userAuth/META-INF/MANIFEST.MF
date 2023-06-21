@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: userAuth
+Bundle-SymbolicName: userAuth
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: userAuth
+Export-Package: com.user.auth,
+ com.user.auth.controller,
+ com.user.auth.dto,
+ com.user.auth.entity,
+ com.user.auth.repository,
+ com.user.auth.security,
+ com.user.auth.service,
+ com.user.auth.serviceImpl,
+ com.user.auth.transformer

@@ -44,4 +44,11 @@ public class NewNodeServiceImpl  {
     public void deleteNode(NewNodeEntity node) {
         nodeRepository.delete(node);
     }
+    
+    public NewNodeEntity updateNode(NewNodeEntity existingNode,NewNodeDto updatedNodeDto) throws JsonProcessingException {
+    	 // Perform any additional operations or validations before saving
+        ObjectMapper objectMapper = new ObjectMapper();
+        existingNode.setData(objectMapper.writeValueAsString(updatedNodeDto.getData()));
+        return nodeRepository.save(existingNode);
+    }
 }

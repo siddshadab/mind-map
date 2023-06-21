@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,6 +66,19 @@ public class NewNodeController {
               NewNodeEntity node = nodeOptional.get();
               nodeService.deleteNode(node);
               return ResponseEntity.ok("Node with ID " + id + " has been deleted.");
+          } else {
+              return ResponseEntity.notFound().build();
+          }
+      }
+      
+      @PutMapping("/{id}")
+      @CrossOrigin(origins = "http://localhost:3000")
+      public ResponseEntity<NewNodeEntity> updateNode(@PathVariable Long id, @RequestBody NewNodeDto updatedNodeDto) throws JsonProcessingException {
+          Optional<NewNodeEntity> existingNodeOptional = nodeService.getNodesById(id);
+          if (existingNodeOptional.isPresent()) {
+              NewNodeEntity existingNode = existingNodeOptional.get();
+              NewNodeEntity updatedNode = nodeService.updateNode(existingNode,updatedNodeDto);
+              return ResponseEntity.ok(updatedNode);
           } else {
               return ResponseEntity.notFound().build();
           }
